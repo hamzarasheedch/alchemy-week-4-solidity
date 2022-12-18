@@ -1,1 +1,0 @@
-exports.contractAddress = '0x31c265020dFB8Ad06f916425782418ff2334018a'
