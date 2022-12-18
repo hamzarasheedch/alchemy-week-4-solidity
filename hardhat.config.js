@@ -1,6 +1,7 @@
-// require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config(".env")
-const {PRIVATE_KEY_GOERLI_ACCOUNT} = process.env
+
+const {PRIVATE_KEY_GOERLI_ACCOUNT, GOERLI_RPC_URL} = process.env
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     hardhat: {
     },
     goerli: {
-      url: "https://eth-goerli.alchemyapi.io/v2/123abc123abc123abc123abc123abcde",
+      url: GOERLI_RPC_URL,
       accounts: [PRIVATE_KEY_GOERLI_ACCOUNT]
     }
   },

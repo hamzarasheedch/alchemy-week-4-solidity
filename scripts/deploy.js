@@ -5,18 +5,18 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
+const fs = require("fs");
 
 async function main() {
-  
   const IntermediateContract = await hre.ethers.getContractFactory("IntermediateContract");
-  const intermediateContract = await IntermediateContract.deploy();
+  const intermediateContract = await IntermediateContract.deploy("0xcF469d3BEB3Fc24cEe979eFf83BE33ed50988502");
 
-  await intermediateContract.deployed("0xcF469d3BEB3Fc24cEe979eFf83BE33ed50988502");
+  await intermediateContract.deployed();
 
   console.log(
     `IntermediateContract deployed to ${intermediateContract.address}`
   );
-  
+  fs.writeFileSync("./deployedContractAddress.js", `exports.contractAddress = '${intermediateContract.address}'`)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
