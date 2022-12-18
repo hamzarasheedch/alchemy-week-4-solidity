@@ -8,7 +8,7 @@ const contractABI = require("../Contract.json")
 const main = async function() {
     const contractInstance = new ethers.Contract("0xcF469d3BEB3Fc24cEe979eFf83BE33ed50988502", contractABI, provider)
     contractInstance.on("Winner", (address) => {
-        console.log("Inside emitWinner", address);
+        console.log("Congrats..! You won", address);
     });
 }
 
